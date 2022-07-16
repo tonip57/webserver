@@ -24,14 +24,14 @@ spec:
             periodSeconds: 20 # How often to test
             timeoutSeconds: 5
             httpGet:
-              path: /healthz
+              path: /healthz/
               port: 3300
           livenessProbe:
             initialDelaySeconds: 30 # Initial delay until the liveness is tested
             periodSeconds: 20 # How often to test
             timeoutSeconds: 5
             httpGet:
-              path: /healthz
+              path: /healthz/
               port: 3300
           resources:
             limits:
