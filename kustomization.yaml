@@ -10,4 +10,4 @@ resources:
 #  - manifests/poddisruptionbudget.yaml
 images:
   - name: PROJECT/IMAGE
-    newName: tonip57/webserver
+    newName: gcr.io/dwk-gke-355308/webserver
