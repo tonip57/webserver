@@ -1,0 +1,30 @@
+name: Delete environment on branch deletion
+
+on: delete
+  
+jobs:
+  delete_environment:
+    if: github.event.ref_type == 'branch'
+    name: Delete environment
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - id: 'auth'
+        uses: 'google-github-actions/auth@v0'
+        with:
+          credentials_json: '${{ secrets.GKE_SA_KEY }}'
+
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v0'
+
+      # Get the GKE credentials so we can deploy to the cluster
+      - run: |-
+          gcloud container clusters get-credentials dwk-cluster --zone europe-north1-c
+
+      # Delete environment
+      - name: Delete
+        run: |-
+          kubectl delete all --all -n ${{ github.event.ref }}
