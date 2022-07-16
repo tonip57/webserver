@@ -26,13 +26,13 @@ spec:
             httpGet:
                path: /healthz
                port: 3300
-          livenessProbe:
-            initialDelaySeconds: 20 # Initial delay until the liveness is tested
-            periodSeconds: 20 # How often to test
-            timeoutSeconds: 5
-            httpGet:
-               path: /healthz
-               port: 3300
+          #livenessProbe:
+          #  initialDelaySeconds: 20 # Initial delay until the liveness is tested
+          #  periodSeconds: 20 # How often to test
+          #  timeoutSeconds: 5
+          #  httpGet:
+          #     path: /healthz
+          #     port: 3300
           resources:
             limits:
               cpu: "250m"
