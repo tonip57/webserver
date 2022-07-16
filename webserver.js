@@ -147,10 +147,10 @@ const requestListener = function (req, res) {
         } catch (err) {
             console.error(err)
         }
-        } else {
-            res.writeHead(200)
-            res.end()
         }
+    } else {
+        res.writeHead(200)
+        res.end()
     }
 }
 
