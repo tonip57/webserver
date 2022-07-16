@@ -10,4 +10,3 @@ spec:
     - port: 2345
       protocol: TCP
       targetPort: 3300
-
