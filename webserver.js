@@ -6,7 +6,7 @@ import download from 'image-downloader'
 import axios from 'axios'
 
 const host = '0.0.0.0'
-const PORT = process.env.PORT
+const PORT = 3300
 const photoUrl = 'https://picsum.photos/1200'
 const volumeUrl = '/usr/src/app/files/'
 ///const volumeUrl = 'C:/Users/tonip/kube/webserver/files/'
