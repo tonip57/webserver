@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webserver-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webserver
+  template:
+    metadata:
+      labels:
+        app: webserver
+    spec:
+      volumes:
+        - name: shared-image
+          persistentVolumeClaim:
+            claimName: image-claim
+      containers:
+        - name: webserver
+          image: PROJECT/IMAGE
+          readinessProbe:
+            initialDelaySeconds: 10 # Initial delay until the readiness is tested
+            periodSeconds: 20 # How often to test
+            timeoutSeconds: 5
+            httpGet:
+               path: /healthz
+               port: 3300
+          livenessProbe:
+            initialDelaySeconds: 20 # Initial delay until the liveness is tested
+            periodSeconds: 20 # How often to test
+            timeoutSeconds: 5
+            httpGet:
+               path: /healthz
+               port: 3300
+          resources:
+            limits:
+              cpu: "250m"
+              memory: "250Mi"
+          volumeMounts:
+          - name: shared-image
+            mountPath: /usr/src/app/files
+            subPath: app

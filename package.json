@@ -1,0 +1,14 @@
+{
+  "type": "module",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "dotenv": "^16.0.1",
+    "image-downloader": "^4.3.0",
+    "image-to-base64": "^2.2.0",
+    "node-fetch": "^3.2.6",
+    "xmlhttprequest": "^1.8.0"
+  },
+  "devDependencies": {
+    "file-loader": "^6.2.0"
+  }
+}
