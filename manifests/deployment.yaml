@@ -42,4 +42,3 @@ spec:
             mountPath: /usr/src/app/files
             subPath: app
             
-
