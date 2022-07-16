@@ -20,14 +20,14 @@ spec:
         - name: webserver
           image: PROJECT/IMAGE
           readinessProbe:
-            initialDelaySeconds: 10 # Initial delay until the readiness is tested
+            initialDelaySeconds: 30 # Initial delay until the readiness is tested
             periodSeconds: 20 # How often to test
             timeoutSeconds: 5
             httpGet:
               path: /healthz
               port: 3300
           livenessProbe:
-            initialDelaySeconds: 20 # Initial delay until the liveness is tested
+            initialDelaySeconds: 30 # Initial delay until the liveness is tested
             periodSeconds: 20 # How often to test
             timeoutSeconds: 5
             httpGet:
