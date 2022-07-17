@@ -19,6 +19,18 @@ spec:
       containers:
         - name: webserver
           image: PROJECT/IMAGE
+          readinessProbe:
+            initialDelaySeconds: 20 # Initial delay until the readiness is tested
+            periodSeconds: 30 # How often to test
+            httpGet:
+              path: /healthz
+              port: 3300
+          livenessProbe:
+            initialDelaySeconds: 20 # Initial delay until the liveness is tested
+            periodSeconds: 30 # How often to test
+            httpGet:
+              path: /healthz
+              port: 3300
           resources:
             limits:
               cpu: "250m"
