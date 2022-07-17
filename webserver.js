@@ -64,7 +64,7 @@ const checkIfPhotoValid = () => {
 ///'http://backend-svc:2345/todos'
 ///'http://localhost:3301/todos'
 function getTodos () {
-    return new Promise((resolve) => axios.get('http://backend-svc:2345/todos')
+    return new Promise((resolve) => axios.get('http://backend-svc:2346/todos')
         .then(function (response) {
             console.log(response)
             let stringhtml = ''
@@ -82,7 +82,7 @@ function getTodos () {
 }
 
 function postTodo (todo) {
-    axios.post('http://backend-svc:2345/todos/' + todo)
+    axios.post('http://backend-svc:2346/todos/' + todo)
         .then(function (response) {
             console.log(response)
         })
@@ -93,7 +93,7 @@ function postTodo (todo) {
 }
 
 function putTodo (id) {
-    axios.put('http://backend-svc:2345/todos/' + id)
+    axios.put('http://backend-svc:2346/todos/' + id)
         .then(function (response) {
             console.log(response)
         })
